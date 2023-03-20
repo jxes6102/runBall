@@ -46,7 +46,7 @@ a{
 /*大小*/
 
 /*中奖*/
-.zonj_zezc{ width:640px; min-height:1039px; position:absolute; left:50%; top:0px; z-index:4;background:rgba(0,0,0,0.85); margin-left:-320px;}
+.zonj_zezc{ width:640px; min-height:100vh; position:absolute; left:50%; top:0px; z-index:4;background:rgba(0,0,0,0.85); margin-left:-320px;}
 .zonj_zezc .jpzs{ 
 	width:450px;
 	height:286px;
