@@ -46,7 +46,16 @@ a{
 /*大小*/
 
 /*中奖*/
-.zonj_zezc{ width:640px; min-height:100vh; position:absolute; left:50%; top:0px; z-index:4;background:rgba(0,0,0,0.85); margin-left:-320px;}
+.zonj_zezc{ 
+	width:640px; 
+	min-height:100vh; 
+	position:absolute; 
+	left:50%; 
+	top:0px; 
+	z-index:4;
+	background:rgba(0,0,0,0.85); 
+	margin-left:-320px;
+}
 .zonj_zezc .jpzs{ 
 	width:450px;
 	height:286px;
@@ -56,8 +65,11 @@ a{
     border-radius:10px; 
 	background:#fff; 
 	margin:300px auto 0px auto; 
-	position:relative}
-.zonj_zezc .jpzs em{ height:95px; position:absolute; right:0px; top:-50px;}
+	position:relative
+}
+.zonj_zezc .jpzs em{ 
+	height:95px; position:absolute; right:0px; top:-50px;
+}
 
 
 .zonj_zezc .jpzs h2{ font-size:36px; color:#ff1a4b; text-align:center; line-height:40px; display:flex; justify-content:center; align-items:center; height:286px; }
