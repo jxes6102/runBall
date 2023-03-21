@@ -41,7 +41,7 @@
     }
 </script>
 
-    <script src="js/jquery1.8.3.min.js"></script>
+<script src="js/jquery1.8.3.min.js"></script>
 
 </head>
 <body>
@@ -66,9 +66,6 @@
         <span  class="qiu_8 diaol_8"></span>
         <span  class="qiu_9 diaol_9"></span>
         <span  class="qiu_10 diaol_10"></span> 
-        <!-- <span  class="qiu_11 diaol_11"></span>
-		<span  class="qiu_12 diaol_12"></span> -->
-		
                
     </div>
 
@@ -78,20 +75,8 @@
    		<span></span>
    </div>
     
-   </div>
+</div>
 
-
-
-
-<!--中奖 获得一等奖-->
-<!-- <div class="zonj_zezc none" id="jianpin_one">
-	<div class="jpzs aiqiyi tc_anima">
-		<em><img src="images/close.png"></em>
-		<h2>
-			<b>恭喜你！<br>获得一等奖！</b>
-		</h2>
-	</div>
-</div> -->
 <div class="zonj_zezc none" id="jianpin_one">
 	<div class="jpzs aiqiyi tc_anima">
 		<em><img src="images/close.png"></em>
@@ -100,38 +85,6 @@
 		</h2>
 	</div>
 </div>
-
-<!--中奖获得二等奖-->
-<div class="zonj_zezc none"  id="jianpin_two">
-	<div class="jpzs aiqiyi tc_anima">
-    	<em><img src="images/close.png"></em>
-        <h2>
-        	<b>恭喜你！<br>获得二等奖！</b>
-        </h2>
-    </div>
-</div>
-
-<!--中奖 获得三等奖-->
-<div class="zonj_zezc none"  id="jianpin_three">
-	<div class="jpzs aiqiyi tc_anima">
-    	<em><img src="images/close.png"></em>
-        <h2>
-        	<b>恭喜你！<br>获得三等奖！</b>
-        </h2>
-    </div>
-</div>
-
-
-<!--没有中奖-->
-<div class="zonj_zezc none" id="jianpin_kong">
-	<div class="jpzs aiqiyi tc_anima">
-    	<em><img src="images/close.png"></em>
-        <h2>
-        	咦？没有抽中？
-        </h2>
-    </div>
-</div>
-
 
 <!--积分不足-->
 <div class="zonj_zezc none" id="no_jifeng">
@@ -149,9 +102,6 @@ $(document).ready(function(e) {
 	for(let i = 11;i<=80;i++){
 		let span = document.createElement('span')
 		span.className = 'qiu_' + i + ' diaol_' + i
-		// qiu_10 diaol_10
-		// span.addClass('qiu_' + i + ' diaol_' + i);
-		// console.log('i')
 		$('.dan_gund').append(span)
 	}
 	//一等奖 关闭
@@ -159,28 +109,13 @@ $(document).ready(function(e) {
 		$("#jianpin_one").hide();
 		}
 	);		
-	//二等奖 关闭
-	$("#jianpin_two em img").click(function(){
-		$("#jianpin_two").hide();
-		}
-	);		
-	//三等奖 关闭
-	$("#jianpin_three em img").click(function(){
-		$("#jianpin_three").hide();
-		}
-	);			
-	//没有中奖 关闭
-	$("#jianpin_kong em img").click(function(){
-		$("#jianpin_kong").hide();
-		}
-	);			
 	//积分不足 关闭
 	$("#no_jifeng em img").click(function(){
 		$("#no_jifeng").hide();
 		}
 	);		
 		
-var score=970;
+var score=270;
 // var tempArr = []
 let allNum = 40
 $(".wdjifen").html(score);
@@ -213,34 +148,23 @@ function draw(){
 		for(i=1;i<=allNum;i++){
 		$(".qiu_"+i).removeClass("wieyi_"+i);
 		}
-	},1100);	
-	setTimeout(function(){
-		switch(number){
-			case 1:$(".zjdl").children("span").addClass("diaL_one");break;
-			case 2:$(".zjdl").children("span").addClass("diaL_two");break;
-			case 3:$(".zjdl").children("span").addClass("diaL_three");break;
-			case 4:$(".zjdl").children("span").addClass("diaL_four");break;
-		}
-		$(".zjdl").removeClass("none").addClass("dila_Y");
-				setTimeout(function (){
-			$("#jianpin_one").show();
+	},1100);
 
-				// switch(number){
-				// 	case 1:$("#jianpin_one").show();break;
-				// 	case 2:$("#jianpin_two").show();break;
-				// 	case 3:$("#jianpin_three").show();break;
-				// 	case 4:$("#jianpin_kong").show();break;
-				// }
-			},900);
-		},1100)
+	setTimeout(function(){
+		$(".zjdl").children("span").addClass("diaL_one");
+		$(".zjdl").removeClass("none").addClass("dila_Y");
+		setTimeout(function (){
+			$("#jianpin_one").show();
+		},900);
+	},1100)
 	
 	//取消动画
 	setTimeout(function (){
-			$(".zjdl").addClass("none").removeClass("dila_Y");
-			$(".wdjifen").html(score);
-			$(".zjdl").children("span").removeAttr('class');
-			
-		},2500)
+		$(".zjdl").addClass("none").removeClass("dila_Y");
+		$(".wdjifen").html(score);
+		$(".zjdl").children("span").removeAttr('class');
+		
+	},2500)
 	
 	// console.log('tempArr',tempArr)
 			
@@ -248,10 +172,5 @@ function draw(){
 });
 
 </script>
-
-<!-- <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
-<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
-<p>来源：<a href="http://sc.chinaz.com/" target="_blank">站长素材</a></p>
-</div> -->
 </body>
 </html>
