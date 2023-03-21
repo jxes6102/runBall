@@ -1103,6 +1103,238 @@
 	-webkit-animation:zhuan 1s linear forwards;
 }
 
+.qiu_53{ 
+	position:absolute; left:30px; top:200px
+}
+.qiu_53:after{
+	content:"53";
+	line-height: 40px; 
+	text-align: center;
+	position:absolute; 
+	left:0; 
+	top:0;
+	width:40px; 
+	height:40px; 
+	display:block;
+	background:url(../images/canpin_1.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	animation:zhuan 1s linear forwards ;
+	-webkit-animation:zhuan 1s linear forwards ;
+}
+
+.qiu_54{ 
+	position:absolute; left:70px; top:200px
+}
+.qiu_54:after{
+	content:"54";
+	line-height: 40px; 
+	text-align: center;
+	position:absolute; 
+	left:0; 
+	top:0;
+	width:40px; 
+	height:40px; 
+	display:block;
+	background:url(../images/canpin_2.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	animation:zhuan 1s linear forwards ;
+	-webkit-animation:zhuan 1s linear forwards ;
+}
+
+.qiu_55{ 
+	position:absolute; left:110px; top:200px
+}
+.qiu_55:after{
+	content:"55";
+	line-height: 40px; 
+	text-align: center;
+	position:absolute; 
+	left:0; 
+	top:0;
+	width:40px; 
+	height:40px; 
+	display:block;
+	background:url(../images/canpin_4.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	animation:zhuan 1s linear forwards ;
+	-webkit-animation:zhuan 1s linear forwards ;
+}
+
+.qiu_56{ 
+	position:absolute; left:150px; top:200px
+}
+.qiu_56:after{
+	content:"56";
+	line-height: 40px; 
+	text-align: center;
+	position:absolute; 
+	left:0; 
+	top:0;
+	width:40px; 
+	height:40px; 
+	display:block;
+	background:url(../images/canpin_1.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	animation:zhuan 1s linear forwards ;
+	-webkit-animation:zhuan 1s linear forwards ;
+}
+
+.qiu_57{ 
+	position:absolute; left:190px; top:200px
+}
+.qiu_57:after{
+	content:"57";
+	line-height: 40px; 
+	text-align: center;
+	position:absolute; 
+	left:0; 
+	top:0;
+	width:40px; 
+	height:40px; 
+	display:block;
+	background:url(../images/canpin_3.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	animation:zhuan 1s linear forwards ;
+	-webkit-animation:zhuan 1s linear forwards ;
+}
+
+.qiu_58{ 
+	position:absolute; left:230px; top:200px
+}
+.qiu_58:after{
+	content:"58";
+	line-height: 40px; 
+	text-align: center;
+	position:absolute; 
+	left:0; 
+	top:0;
+	width:40px; 
+	height:40px; 
+	display:block;
+	background:url(../images/canpin_1.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	animation:zhuan 1s linear forwards ;
+	-webkit-animation:zhuan 1s linear forwards ;
+}
+
+.qiu_59{ 
+	position:absolute; left:270px; top:200px
+}
+.qiu_59:after{
+	content:"59";
+	line-height: 40px; 
+	text-align: center;
+	position:absolute; 
+	left:0; 
+	top:0;
+	width:40px; 
+	height:40px; 
+	display:block;
+	background:url(../images/canpin_4.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	animation:zhuan 1s linear forwards ;
+	-webkit-animation:zhuan 1s linear forwards ;
+}
+
+.qiu_60{ 
+	position:absolute; left:310px; top:200px
+}
+.qiu_60:after{
+	content:"60";
+	line-height: 40px; 
+	text-align: center;
+	position:absolute; 
+	left:0; 
+	top:0;
+	width:40px; 
+	height:40px; 
+	display:block;
+	background:url(../images/canpin_3.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	animation:zhuan 1s linear forwards ;
+	-webkit-animation:zhuan 1s linear forwards ;
+}
+
+.qiu_61{ 
+	position:absolute; left:350px; top:200px
+}
+.qiu_61:after{
+	content:"61";
+	line-height: 40px; 
+	text-align: center;
+	position:absolute; 
+	left:0; 
+	top:0;
+	width:40px; 
+	height:40px; 
+	display:block;
+	background:url(../images/canpin_2.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	animation:zhuan 1s linear forwards ;
+	-webkit-animation:zhuan 1s linear forwards ;
+}
+
+.qiu_62{ 
+	position:absolute; left:390px; top:200px
+}
+.qiu_62:after{
+	content:"62";
+	line-height: 40px; 
+	text-align: center;
+	position:absolute; 
+	left:0; 
+	top:0;
+	width:40px; 
+	height:40px; 
+	display:block;
+	background:url(../images/canpin_3.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	animation:zhuan 1s linear forwards ;
+	-webkit-animation:zhuan 1s linear forwards ;
+}
+
+.qiu_63{ 
+	position:absolute; left:430px; top:200px
+}
+.qiu_63:after{
+	content:"63";
+	line-height: 40px; 
+	text-align: center;
+	position:absolute; 
+	left:0; 
+	top:0;
+	width:40px; 
+	height:40px; 
+	display:block;
+	background:url(../images/canpin_3.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	animation:zhuan 1s linear forwards ;
+	-webkit-animation:zhuan 1s linear forwards ;
+}
+
+
 @-webkit-keyframes zhuan{
 	0%{ -webkit-transform: rotate(0) }
 	100%{-webkit-transform: rotate(360deg) }
