@@ -64,8 +64,8 @@
         <span  class="qiu_8 diaol_8"></span>
         <span  class="qiu_9 diaol_9"></span>
         <span  class="qiu_10 diaol_10"></span> 
-        <span  class="qiu_11 diaol_11"></span>
-		<span  class="qiu_12 diaol_12"></span>
+        <!-- <span  class="qiu_11 diaol_11"></span>
+		<span  class="qiu_12 diaol_12"></span> -->
 		
                
     </div>
@@ -143,6 +143,15 @@
 <script>
 	
 $(document).ready(function(e) {
+	// console.log('ready')
+	for(let i = 11;i<=80;i++){
+		let span = document.createElement('span')
+		span.className = 'qiu_' + i + ' diaol_' + i
+		// qiu_10 diaol_10
+		// span.addClass('qiu_' + i + ' diaol_' + i);
+		// console.log('i')
+		$('.dan_gund').append(span)
+	}
 	//一等奖 关闭
 	$("#jianpin_one em img").click(function(){
 		$("#jianpin_one").hide();
@@ -170,8 +179,8 @@ $(document).ready(function(e) {
 	);		
 		
 var score=970;
-var tempArr = []
-let allNum = 12
+// var tempArr = []
+let allNum = 18
 $(".wdjifen").html(score);
 
 
@@ -191,7 +200,7 @@ $(".game_go").click(function(){
 	
 function draw(){
 	var number =Math.floor(4*Math.random()+1);  
-	tempArr.push(number)
+	// tempArr.push(number)
 	// 總共數量
 	for(i=1;i<=allNum;i++){
 			$(".qiu_"+i).removeClass("diaol_"+i);
@@ -231,7 +240,7 @@ function draw(){
 			
 		},2500)
 	
-	console.log('tempArr',tempArr)
+	// console.log('tempArr',tempArr)
 			
 }	
 });
