@@ -49,9 +49,8 @@
 <div class="niu_danji">
 	<!--机器-->
 	<div class="game_qu">
-    	<!--go-->
-        <div class="game_go">100/次</div>
-         <div class="wdjifen">10000</div>
+        <div class="game_go"></div>
+        <div class="wdjifen"></div>
     </div>
     
     <!--球-->
@@ -80,12 +79,8 @@
 <div class="zonj_zezc none" id="jianpin_one">
 	<div class="jpzs aiqiyi tc_anima">
 		<em><img src="images/close.png"></em>
-		<!-- <h2>
-			<b>中了<br>X、Y、Z號</b>
-		</h2> -->
-		<h2 id="message">
-			中了X、Y、Z號
-		</h2>
+		<h2 id="message"></h2>
+		<!-- <div id="message"></div> -->
 	</div>
 </div>
 
@@ -108,6 +103,7 @@ const getNum = async() => {
 		console.log('res',res);
 		drawResult = res.data.data[0].drawResult
 		// drawResult = res.data.data[0].drawResult.split(',').map((item)=> parseInt(item))
+		console.log(drawResult.length)
 		console.log('drawResult',drawResult)
 	}).catch((error) =>{
 		// handle error
@@ -139,17 +135,17 @@ $(document).ready((e) =>{
 		}
 	);		
 		
-	var score=270;
+	var score=true;
 	// var tempArr = []
 	let playStatus = false
-	$(".wdjifen").html(score);
+	// $(".wdjifen").html(score);
 
 	$(".game_go").click(function(){
 		if(playStatus) return false
 		playStatus = true
-		score-=100;
+		// score-=100;
 		// 總共數量
-		if(score<0){
+		if(!score){
 			for(i=1;i<=allNum;i++){
 				$(".qiu_"+i).removeClass("wieyi_"+i);
 			}
@@ -180,8 +176,11 @@ $(document).ready((e) =>{
 			$(".zjdl").children("span").addClass("diaL_one");
 			$(".zjdl").removeClass("none").addClass("dila_Y");
 			setTimeout(function (){
+				let data = drawResult.substring( 0 , drawResult.length/3+1 ) + '<br>' 
+				+ drawResult.substring( drawResult.length/3+1,2*drawResult.length/3) + '<br>' 
+				+ drawResult.substring( 2*drawResult.length/3,drawResult.length)
 				
-				$("#message").html("中了<br>"+drawResult+"!")
+				$("#message").html("中了<br>"+data+"!")
 				$("#jianpin_one").show();
 				playStatus = false
 			},900);
@@ -190,7 +189,7 @@ $(document).ready((e) =>{
 		//取消动画
 		setTimeout(function (){
 			$(".zjdl").addClass("none").removeClass("dila_Y");
-			$(".wdjifen").html(score);
+			// $(".wdjifen").html(score);
 			$(".zjdl").children("span").removeAttr('class');
 		},2500)
 
