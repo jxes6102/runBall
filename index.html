@@ -118,21 +118,24 @@ $(document).ready(function(e) {
 var score=270;
 // var tempArr = []
 let allNum = 40
+let playStatus = false
 $(".wdjifen").html(score);
 
-
 $(".game_go").click(function(){
+	if(playStatus) return false
+	playStatus = true
 	score-=100;
 	// 總共數量
-		if(score<0){
-			for(i=1;i<=allNum;i++){
-				$(".qiu_"+i).removeClass("wieyi_"+i);
-			}
-			$("#no_jifeng").show();
-			}else{
-				draw()
-				}
-		});
+	if(score<0){
+		for(i=1;i<=allNum;i++){
+			$(".qiu_"+i).removeClass("wieyi_"+i);
+		}
+		$("#no_jifeng").show();
+		playStatus = false
+	}else{
+		draw()
+	}
+});
 	
 	
 function draw(){
@@ -155,6 +158,7 @@ function draw(){
 		$(".zjdl").removeClass("none").addClass("dila_Y");
 		setTimeout(function (){
 			$("#jianpin_one").show();
+			playStatus = false
 		},900);
 	},1100)
 	
@@ -165,9 +169,7 @@ function draw(){
 		$(".zjdl").children("span").removeAttr('class');
 		
 	},2500)
-	
 	// console.log('tempArr',tempArr)
-			
 }	
 });
 
