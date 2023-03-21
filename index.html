@@ -100,6 +100,7 @@
 </div>
 <script>
 let drawResult = null
+let allNum = 75
 const getNum = async() => {
 	await axios.get('https://globalcaipiaokong.com/api/trial/draw-result?code=twklb&rows=1')
 	.then((res) =>{
@@ -140,7 +141,6 @@ $(document).ready((e) =>{
 		
 	var score=270;
 	// var tempArr = []
-	let allNum = 63
 	let playStatus = false
 	$(".wdjifen").html(score);
 
