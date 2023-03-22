@@ -71,87 +71,75 @@
 		<!-- <div id="message"></div> -->
 	</div>
 </div>
-
-<!--积分不足-->
-<div class="zonj_zezc none" id="no_jifeng">
-	<div class="jpzs aiqiyi tc_anima">
-    	<em><img src="images/close.png"></em>
-        <h2>
-        	对不起，积分不足！
-        </h2>
-    </div>
-</div>
 <script>
-var time = new Date();
-// var month = time.getMonth() + 1;
-// var day = time.getDate();
-let str = time.getMonth() + 1+'-'+time.getDate()
+// var time = new Date();
+// let str = time.getMonth() + 1+'-'+time.getDate()
 
-let fake = [
-	{
-		number:97,
-		result: "02,11,15,16,19,21,27,28,32,35,45,47,55,57,60,62,67,70,76,79",
-		time: "2023-03-22 15:07:08",
-		hasRun:false
-	},
-	{
-		number:98,
-		result: "14,17,21,22,24,28,31,32,35,42,43,49,55,57,58,60,61,63,71,73",
-		time: "2023-03-22 15:10:57",
-		hasRun:false
-	},
-	{
-		number:99,
-		result:"07,10,13,17,18,19,22,30,34,35,36,37,38,45,47,52,57,64,72,75",
-		time:"2023-03-22 15:16:56",
-		hasRun:false
-	},
-	{
-		number: 100,
-		result: "08,09,10,12,14,15,18,24,28,33,34,41,50,52,56,62,63,71,76,80",
-		time: "2023-03-22 15:21:26",
-		hasRun:false
-	},
-	{
-		number: 101,
-		result: "04,05,08,12,13,17,20,22,23,34,35,37,43,45,54,57,60,66,74,76",
-		time: "2023-03-22 15:26:59",
-		hasRun:false
-	},
-]
-console.log(str)
-// 確保是今日資料
-fake = fake.filter(((item)=> item.time.includes(str)))
-console.log('gg',fake)
+// let fake = [
+// 	{
+// 		number:97,
+// 		result: "02,11,15,16,19,21,27,28,32,35,45,47,55,57,60,62,67,70,76,79",
+// 		time: "2023-03-22 15:07:08",
+// 		hasRun:false
+// 	},
+// 	{
+// 		number:98,
+// 		result: "14,17,21,22,24,28,31,32,35,42,43,49,55,57,58,60,61,63,71,73",
+// 		time: "2023-03-22 15:10:57",
+// 		hasRun:false
+// 	},
+// 	{
+// 		number:99,
+// 		result:"07,10,13,17,18,19,22,30,34,35,36,37,38,45,47,52,57,64,72,75",
+// 		time:"2023-03-22 15:16:56",
+// 		hasRun:false
+// 	},
+// 	{
+// 		number: 100,
+// 		result: "08,09,10,12,14,15,18,24,28,33,34,41,50,52,56,62,63,71,76,80",
+// 		time: "2023-03-22 15:21:26",
+// 		hasRun:false
+// 	},
+// 	{
+// 		number: 101,
+// 		result: "04,05,08,12,13,17,20,22,23,34,35,37,43,45,54,57,60,66,74,76",
+// 		time: "2023-03-22 15:26:59",
+// 		hasRun:false
+// 	},
+// ]
+// console.log(str)
+// // 確保是今日資料
+// fake = fake.filter(((item)=> item.time.includes(str)))
+// console.log('gg',fake)
 
 //歷史紀錄
-fetch('https://wkc-admin.worldlottery.cc/graphql', {
-	body: JSON.stringify({
-		operationName:"drawHistory",
-		query: "query drawHistory($code: String!) {\n  drawHistory(code: $code) {\n    issue\n    drawResult\n    drawTime\n    __typename\n  }\n}\n",
-		variables:{code:"twklb"}
-	}),
-	headers: {
-		'content-type': 'application/json' // 這一欄一定要設定！
-	},
-	method: 'POST',
-})
-.then(response => response.json()) // 輸出成 json
-.then(data => console.log('graphql',data))
-
-
+// fetch('https://wkc-admin.worldlottery.cc/graphql', {
+// 	body: JSON.stringify({
+// 		operationName:"drawHistory",
+// 		query: "query drawHistory($code: String!) {\n  drawHistory(code: $code) {\n    issue\n    drawResult\n    drawTime\n    __typename\n  }\n}\n",
+// 		variables:{code:"twklb"}
+// 	}),
+// 	headers: {
+// 		'content-type': 'application/json' // 這一欄一定要設定！
+// 	},
+// 	method: 'POST',
+// })
+// .then(response => response.json()) // 輸出成 json
+// .then(data => console.log('graphql',data))
 
 
 let drawResult = null
 let allNum = 80
 let data = []
+let cycleNo = 0
+let openStatus = true
 const getNum = async() => {
 	await axios.get('https://globalcaipiaokong.com/api/trial/draw-result?code=twklb&rows=1')
 	.then((res) =>{
 		// handle success
-		console.log('res',res);
+		// console.log('res',res);
 		if(res.data.msg === '成功') {
-			console.log('成功')
+			// console.log('成功')
 			if(!data.map((item)=> item.number).includes(res.data.data[0].cycleNo)){
 				data.push({
 					number:res.data.data[0].cycleNo,
@@ -159,11 +147,19 @@ const getNum = async() => {
 					time:res.data.data[0].prevDrawTime,
 					hasRun:false
 				})
-				console.log('data',data)
+				// console.log('data',data)
 			}
 			
 			// console.log('num arr',data.map((item)=> item.number))
 		}
+
+		if(cycleNo === res.data.data[0].cycleNo) {
+			openStatus = false
+		}else{
+			cycleNo = res.data.data[0].cycleNo
+			openStatus = true
+		}
+		
 		drawResult = res.data.data[0].drawResult
 		// drawResult = res.data.data[0].drawResult.split(',').map((item)=> parseInt(item))
 		// console.log(drawResult.length)
@@ -184,6 +180,37 @@ const init = async() => {
 	// console.log('init')
 }
 
+const play = () => {
+	$("#jianpin_one em img").click()
+	// 滾球動畫
+	for(i=1;i<=allNum;i++){
+		$(".qiu_"+i).removeClass("diaol_"+i);
+		$(".qiu_"+i).addClass("wieyi_"+i);
+	};
+	// 掉球動畫
+	setTimeout(function (){
+		$(".zjdl").children("span").addClass("diaL_one");
+		$(".zjdl").removeClass("none").addClass("dila_Y");
+	},1000);
+	// 結束動畫	
+	setTimeout(function (){
+		for(i=1;i<=allNum;i++){
+			$(".qiu_"+i).removeClass("wieyi_"+i);
+		}
+
+		let data = drawResult.substring( 0 , drawResult.length/3+1 ) + '<br>' 
+			+ drawResult.substring( drawResult.length/3+1,2*drawResult.length/3) + '<br>' 
+			+ drawResult.substring( 2*drawResult.length/3,drawResult.length)
+		
+		$("#message").html('編號'+cycleNo+":"+"<br>"+data+"!")
+		$("#jianpin_one").show();
+
+		$(".zjdl").addClass("none").removeClass("dila_Y");
+		$(".zjdl").children("span").removeAttr('class');
+
+	},120000);
+}
+
 $(document).ready((e) =>{
 	init()
 	// console.log('ready')
@@ -191,165 +218,20 @@ $(document).ready((e) =>{
 	$("#jianpin_one em img").click(function(){
 		$("#jianpin_one").hide();
 		}
-	);		
-	//积分不足 关闭
-	$("#no_jifeng em img").click(function(){
-		$("#no_jifeng").hide();
-		}
-	);		
+	);
 		
 	var score=true;
-	// var tempArr = []
-	let playStatus = false
-	// $(".wdjifen").html(score);
-
-	// $(".game_go").click(function(){
-	// 	if(playStatus) return false
-	// 	playStatus = true
-	// 	// score-=100;
-	// 	// 總共數量
-	// 	if(!score){
-	// 		for(i=1;i<=allNum;i++){
-	// 			$(".qiu_"+i).removeClass("wieyi_"+i);
-	// 		}
-	// 		$("#no_jifeng").show();
-	// 		playStatus = false
-	// 	}else{
-	// 		draw()
-	// 	}
-	// });
-		
-		
-	function draw(){
-		var number =Math.floor(4*Math.random()+1);  
-
-		// 總共數量
-		for(i=1;i<=allNum;i++){
-			$(".qiu_"+i).removeClass("diaol_"+i);
-			$(".qiu_"+i).addClass("wieyi_"+i);
-		};
-				
-		setTimeout(function (){
-			for(i=1;i<=allNum;i++){
-			$(".qiu_"+i).removeClass("wieyi_"+i);
-			}
-		},1100);
-
-		setTimeout(function(){
-			$(".zjdl").children("span").addClass("diaL_one");
-			$(".zjdl").removeClass("none").addClass("dila_Y");
-			setTimeout(function (){
-				let data = drawResult.substring( 0 , drawResult.length/3+1 ) + '<br>' 
-				+ drawResult.substring( drawResult.length/3+1,2*drawResult.length/3) + '<br>' 
-				+ drawResult.substring( 2*drawResult.length/3,drawResult.length)
-				
-				$("#message").html("中了<br>"+data+"!")
-				$("#jianpin_one").show();
-				playStatus = false
-			},900);
-		},1100)
-		
-		//取消动画
-		setTimeout(function (){
-			$(".zjdl").addClass("none").removeClass("dila_Y");
-			// $(".wdjifen").html(score);
-			$(".zjdl").children("span").removeAttr('class');
-		},2500)
-	}
-
-
-
-	// let times = 0
-	// var timeout = window.setInterval((() => {
-	// 	// 拿號碼
-	// 	getNum()
-	// 	// 開始動畫
-	// 	$("#jianpin_one em img").click()
-	// 	times++
-	// 	for(i=1;i<=allNum;i++){
-	// 		$(".qiu_"+i).removeClass("diaol_"+i);
-	// 		$(".qiu_"+i).addClass("wieyi_"+i);
-	// 	};
-	// 	// 掉球動畫
-	// 	setTimeout(function (){
-	// 		$(".zjdl").children("span").addClass("diaL_one");
-	// 		$(".zjdl").removeClass("none").addClass("dila_Y");
-	// 	},1000);
-	// 	// 結束動畫	
-	// 	setTimeout(function (){
-	// 		for(i=1;i<=allNum;i++){
-	// 			$(".qiu_"+i).removeClass("wieyi_"+i);
-	// 		}
-
-	// 		let data = drawResult.substring( 0 , drawResult.length/3+1 ) + '<br>' 
-	// 			+ drawResult.substring( drawResult.length/3+1,2*drawResult.length/3) + '<br>' 
-	// 			+ drawResult.substring( 2*drawResult.length/3,drawResult.length)
-			
-	// 		$("#message").html("中了<br>"+data+"!")
-	// 		$("#jianpin_one").show();
-
-	// 		$(".zjdl").addClass("none").removeClass("dila_Y");
-	// 		$(".zjdl").children("span").removeAttr('class');
-	// 		playStatus = false
-	// 	},2000);
-	// } ), 5000);
-
-
-	// var time = new Date();
-	// var year = time.getFullYear();
-	// var month = time.getMonth() + 1;
-	// var day = time.getDay() +1 ;
-	// var hours = time.getHours();
-	// var minutes = time.getMinutes();
-	// var sec = time.getSeconds();
-	// var millSec = time.getMilliseconds();
-
-	const clear = () => {
-		var time = new Date();
-		// var month = time.getMonth() + 1;
-		// var day = time.getDate();
-		let str = time.getMonth() + 1+'-'+time.getDate()
-		console.log(str)
-	}
-
-	var timeout1 = window.setInterval((() => {
-		clear()
+	
+	setTimeout(function (){
+		play()
+	},1000);
+	var timeout1 = window.setInterval((async() => {
 		// 拿號碼
-		getNum()
+		await getNum()
+		if(openStatus) {
+			play()
+		}
 	} ), 60000);
-
-	var timeout2 = window.setInterval((() => {
-		// 開始動畫
-		$("#jianpin_one em img").click()
-
-		for(i=1;i<=allNum;i++){
-			$(".qiu_"+i).removeClass("diaol_"+i);
-			$(".qiu_"+i).addClass("wieyi_"+i);
-		};
-		// 掉球動畫
-		setTimeout(function (){
-			$(".zjdl").children("span").addClass("diaL_one");
-			$(".zjdl").removeClass("none").addClass("dila_Y");
-		},1000);
-		// 結束動畫	
-		setTimeout(function (){
-			for(i=1;i<=allNum;i++){
-				$(".qiu_"+i).removeClass("wieyi_"+i);
-			}
-
-			let data = drawResult.substring( 0 , drawResult.length/3+1 ) + '<br>' 
-				+ drawResult.substring( drawResult.length/3+1,2*drawResult.length/3) + '<br>' 
-				+ drawResult.substring( 2*drawResult.length/3,drawResult.length)
-			
-			$("#message").html("中了<br>"+data+"!")
-			$("#jianpin_one").show();
-
-			$(".zjdl").addClass("none").removeClass("dila_Y");
-			$(".zjdl").children("span").removeAttr('class');
-			playStatus = false
-		},120000);
-	} ), 300000);
-
 
 });
 
