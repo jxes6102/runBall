@@ -93,6 +93,7 @@ let drawResult = ''
 let allNum = 80
 let cycleNo = 0
 let openStatus = true
+// 拿開獎數字
 const getNum = async() => {
 	await fetch('https://globalcaipiaokong.com/api/trial/draw-result?code=twklb&rows=1', {
 		headers: {
@@ -102,7 +103,7 @@ const getNum = async() => {
 	})
 	.then(response => response.json()) // 輸出成 json
 	.then(res => {
-		console.log('res',res)
+
 		if(res.msg === '成功') {
 			if(cycleNo === res.data[0].cycleNo) {
 				openStatus = false
@@ -112,14 +113,14 @@ const getNum = async() => {
 			}
 			
 			drawResult = res.data[0].drawResult
-			console.log('drawResult',drawResult)
+			// console.log('drawResult',drawResult)
 		}
 
 	}).catch((error) => {
 		console.error("Error:", error);
 	});
 }
-
+//初始化球和API
 const init = async() => {
 	await getNum()
 	for(let i = 1;i<=allNum;i++){
@@ -129,7 +130,7 @@ const init = async() => {
 	}
 	// console.log('init')
 }
-
+//掉球動作
 let fallTimes = 0
 const fallBall = () => {
 	if(fallTimes<20){
@@ -159,7 +160,7 @@ const showMessage = () => {
 	$("#jianpin_one").show();
 }
 
-
+// 開獎動作
 const play = () => {
 	fallTimes = 0
 	$("#jianpin_one em img").click()
