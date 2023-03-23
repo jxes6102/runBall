@@ -123,13 +123,7 @@ const getNum = async() => {
 //初始化球和API
 const init = async() => {
 	await getNum()
-	// for(let i = 1;i<=allNum;i++){
-	// 	let span = document.createElement('span')
-	// 	span.className = 'qiu_' + i + ' diaol_' + i
-	// 	$('.dan_gund').append(span)
-	// }
-	let tempNum = 60
-	for(let i = tempNum;i<=tempNum;i++){
+	for(let i = 1;i<=allNum;i++){
 		let span = document.createElement('span')
 		span.className = 'qiu_' + i + ' diaol_' + i
 		$('.dan_gund').append(span)
@@ -205,8 +199,8 @@ $(document).ready((e) =>{
 	);
 	
 	setTimeout(function (){
-		// showMessage()
-		play()
+		showMessage()
+		// play()
 	},1000);
 
 	var timeout1 = window.setInterval((async() => {

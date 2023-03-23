@@ -1402,73 +1402,73 @@ opacity: 1;
 
 @-webkit-keyframes around61 {  
     0%{ -webkit-transform:translate(0px,0px)  }
-    20%{ -webkit-transform:translate(-60px,-170px)  }
-    40%{ -webkit-transform:translate(-90px,160px)  }
+    20%{ -webkit-transform:translate(-60px,-70px)  }
+    40%{ -webkit-transform:translate(-90px,10px)  }
     60%{ -webkit-transform:translate(-20px,-40px)  }
-    80%{ -webkit-transform:translate(0px,60px)  }
+    80%{ -webkit-transform:translate(0px,30px)  }
     100%{ -webkit-transform:translate(0px,0px)  }
 
 }
 
 @keyframes around61 {  
     0%{ transform:translate(0px,0px)  }
-    20%{ transform:translate(-60px,-170px)  }
-    40%{ transform:translate(-90px,160px)  }
+    20%{ transform:translate(-60px,-70px)  }
+    40%{ transform:translate(-90px,10px)  }
     60%{ transform:translate(-20px,-40px)  }
-    80%{ transform:translate(0px,60px)  }
+    80%{ transform:translate(0px,30px)  }
     100%{ transform:translate(0px,0px)  }
 
 }
 
 @-webkit-keyframes around62 {  
     0%{ -webkit-transform:translate(0px,0px)  }
-    20%{ -webkit-transform:translate(-140px,-120px)  }
+    20%{ -webkit-transform:translate(-40px,-20px)  }
     40%{ -webkit-transform:translate(-140px,40px)  }
     60%{ -webkit-transform:translate(-180px,-20px)  }
-    80%{ -webkit-transform:translate(-10px,50px)  }
+    80%{ -webkit-transform:translate(-90px,50px)  }
     100%{ -webkit-transform:translate(0px,0px)  }
 }
 @keyframes around62 {  
     0%{ transform:translate(0px,0px)  }
-    20%{ transform:translate(-140px,-120px)  }
+    20%{ transform:translate(-40px,-20px)  }
     40%{ transform:translate(-140px,40px)  }
     60%{ transform:translate(-180px,-20px)  }
-    80%{ transform:translate(-10px,50px)  }
+    80%{ transform:translate(-90px,50px)  }
     100%{ transform:translate(0px,0px)  }
 }
 
 @-webkit-keyframes around63 {  
     0%{ -webkit-transform:translate(0px,0px)  }
-    30%{ -webkit-transform:translate(-200px,-180px)  }
-    60%{ -webkit-transform:translate(-350px,20px)  }
-    80%{ -webkit-transform:translate(-100px,-200px)  }
+    30%{ -webkit-transform:translate(-100px,-80px)  }
+    60%{ -webkit-transform:translate(-130px,10px)  }
+    80%{ -webkit-transform:translate(-70px,20px)  }
     100%{ -webkit-transform:translate(0px,0px)  }
 }
 
 @keyframes around63 {  
     0%{ transform:translate(0px,0px)  }
-    30%{ transform:translate(-200px,-180px)  }
-    60%{ transform:translate(-350px,20px)  }
-    80%{ transform:translate(-100px,-200px)  }
+    30%{ transform:translate(-100px,-80px)  }
+    60%{ transform:translate(-130px,10px)  }
+    80%{ transform:translate(-70px,20px)  }
     100%{ transform:translate(0px,0px)  }
 }
 
 
 @-webkit-keyframes around64 {  
     0%{ -webkit-transform:translate(0px,0px)  }
-    15%{ -webkit-transform:translate(0px,-70px)  }
-    30%{ -webkit-transform:translate(20px,-220px)  }
-    50%{ -webkit-transform:translate(30px,10px)  }
-    75%{ -webkit-transform:translate(0px,-50px)  }
+    15%{ -webkit-transform:translate(0px,-20px)  }
+    30%{ -webkit-transform:translate(20px,-10px)  }
+    50%{ -webkit-transform:translate(30px,70px)  }
+    75%{ -webkit-transform:translate(0px,50px)  }
     100%{ -webkit-transform:translate(0px,0px)  }
 }
 
 @keyframes around64 {  
     0%{ transform:translate(0px,0px)  }
-    15%{ transform:translate(0px,-70px)  }
-    30%{ transform:translate(20px,-220px)  }
-    50%{ transform:translate(30px,10px)  }
-    75%{ transform:translate(0px,-50px)  }
+    15%{ transform:translate(0px,-20px)  }
+    30%{ transform:translate(20px,-10px)  }
+    50%{ transform:translate(30px,70px)  }
+    75%{ transform:translate(0px,50px)  }
     100%{ transform:translate(0px,0px)  }
 }
 
@@ -1476,7 +1476,7 @@ opacity: 1;
 @-webkit-keyframes around65 {  
     0%{ -webkit-transform:translate(0px,0px)  }
     32%{ -webkit-transform:translate(70px,70px)  }
-    60%{ -webkit-transform:translate(30px,-220px)  }
+    60%{ -webkit-transform:translate(30px,-20px)  }
     80%{ -webkit-transform:translate(10px,10px)  }
     100%{ -webkit-transform:translate(0px,0px)  }
 
@@ -1485,49 +1485,49 @@ opacity: 1;
 @keyframes around65 {  
     0%{ transform:translate(0px,0px)  }
     32%{ transform:translate(70px,70px)  }
-    60%{ transform:translate(30px,-220px)  }
+    60%{ transform:translate(30px,-20px)  }
     80%{ transform:translate(10px,10px)  }
     100%{ transform:translate(0px,0px)  }
 }
 
 @-webkit-keyframes around66 {  
 	0%{ -webkit-transform:translate(0px,0px)  }
-	25%{-webkit-transform:translate(90px,-190px) }
-	50%{-webkit-transform:translate(220px,10px) }
-	80%{-webkit-transform:translate(20px,90px) }
+	25%{-webkit-transform:translate(90px,-90px) }
+	50%{-webkit-transform:translate(120px,10px) }
+	80%{-webkit-transform:translate(40px,90px) }
 	100%{ -webkit-transform:translate(0px,0px)  }
 }
 @keyframes around66 {  
 	0%{ transform:translate(0px,0px)  }
-	25%{transform:translate(90px,-190px) }
-	50%{transform:translate(220px,10px) }
-	80%{transform:translate(20px,90px) }
+	25%{transform:translate(90px,-90px) }
+	50%{transform:translate(120px,10px) }
+	80%{transform:translate(40px,90px) }
 	100%{ transform:translate(0px,0px)  }
 }
 
 @-webkit-keyframes around67 {  
     0%{ -webkit-transform:translate(0px,0px)  }
-    10%{-webkit-transform:translate(30px,-120px) }
-    30%{-webkit-transform:translate(50px,130px) }
-    50%{-webkit-transform:translate(250px,-120px) }
-    80%{-webkit-transform:translate(90px,140px) }
+    10%{-webkit-transform:translate(30px,-80px) }
+    30%{-webkit-transform:translate(50px,-130px) }
+    50%{-webkit-transform:translate(110px,-70px) }
+    80%{-webkit-transform:translate(90px,10px) }
     100%{-webkit-transform:translate(0px,0px) }
 }
 @keyframes around67 {  
     0%{ transform:translate(0px,0px)  }
-    10%{transform:translate(30px,-120px) }
-    30%{transform:translate(250px,130px) }
-    50%{transform:translate(50px,-120px) }
-    80%{transform:translate(90px,140px) }
+    10%{transform:translate(30px,-80px) }
+    30%{transform:translate(50px,-130px) }
+    50%{transform:translate(110px,-70px) }
+    80%{transform:translate(90px,10px) }
     100%{transform:translate(0px,0px) }
 }
 
 
 @-webkit-keyframes around68 {  
     0%{ -webkit-transform:translate(0px,0px)  }
-    25%{-webkit-transform:translate(-70px,-20px) }
+    25%{-webkit-transform:translate(-70px,20px) }
     50%{-webkit-transform:translate(30px,0px) }
-    80%{-webkit-transform:translate(-120px,-90px) }
+    80%{-webkit-transform:translate(-50px,-90px) }
     100%{ -webkit-transform:translate(0px,0px)  }
 }
 
@@ -1535,7 +1535,7 @@ opacity: 1;
     0%{ transform:translate(0px,0px)  }
     25%{transform:translate(-70px,20px) }
     50%{transform:translate(30px,0px) }
-    80%{transform:translate(-120px,90px) }
+    80%{transform:translate(-50px,-90px) }
     100%{ transform:translate(0px,0px)  }
 
 }
@@ -1543,7 +1543,7 @@ opacity: 1;
 @-webkit-keyframes around69 {  
 	0%{ -webkit-transform:translate(0px,0px)  }
 	12%{-webkit-transform:translate(-50px,50px) }
-	30%{-webkit-transform:translate(150px,30px) }
+	30%{-webkit-transform:translate(0px,30px) }
 	60%{-webkit-transform:translate(-40px,20px) }
 	80%{-webkit-transform:translate(-10px,-30px) }
 	100%{ -webkit-transform:translate(0px,0px)  }
@@ -1552,7 +1552,7 @@ opacity: 1;
 @keyframes around69 {  
 	0%{transform:translate(0px,0px)  }
 	12%{transform:translate(-50px,50px) }
-	30%{transform:translate(150px,30px) }
+	30%{transform:translate(0px,30px) }
 	60%{transform:translate(-40px,20px) }
 	80%{transform:translate(-10px,-30px) }
 	100%{ transform:translate(0px,0px)  }
@@ -1561,17 +1561,17 @@ opacity: 1;
 
 @-webkit-keyframes around70 {  
 	0%{ -webkit-transform:translate(0px,0px)  }
-	22%{-webkit-transform:translate(-50px,170px) }
-	46%{-webkit-transform:translate(250px,45px) }
-	80%{-webkit-transform:translate(-20px,115px) }
+	22%{-webkit-transform:translate(-50px,70px) }
+	46%{-webkit-transform:translate(50px,30px) }
+	80%{-webkit-transform:translate(-20px,110px) }
 	100%{ -webkit-transform:translate(0px,0px)  }
 }
 
 @keyframes around70 {  
 	0%{ transform:translate(0px,0px)  }
-	22%{transform:translate(-50px,170px) }
-	46%{transform:translate(250px,45px) }
-	80%{transform:translate(-20px,115px) }
+	22%{transform:translate(-50px,70px) }
+	46%{transform:translate(50px,30px) }
+	80%{transform:translate(-20px,110px) }
 	100%{ transform:translate(0px,0px)  }
 }
 
@@ -1579,20 +1579,20 @@ opacity: 1;
 @-webkit-keyframes around71 {  
     0%{ -webkit-transform:translate(0px,0px)  }
     15%{ -webkit-transform:translate(60px,40px)  }
-    30%{ -webkit-transform:translate(-180px,160px)  }
+    30%{ -webkit-transform:translate(-10px,100px)  }
     45%{ -webkit-transform:translate(40px,40px)  }
-    60%{ -webkit-transform:translate(-10px,190px)  }
-    75%{ -webkit-transform:translate(80px,-80px)  }
+    60%{ -webkit-transform:translate(-10px,90px)  }
+    75%{ -webkit-transform:translate(30px,0px)  }
     100%{ -webkit-transform:translate(0px,0px)  }
 }
 
 @keyframes around71 {  
     0%{ transform:translate(0px,0px)  }
     15%{ transform:translate(60px,40px)  }
-    30%{ transform:translate(-180px,160px)  }
+    30%{ transform:translate(-10px,100px)  }
     45%{ transform:translate(40px,40px)  }
-    60%{ transform:translate(-10px,190px)  }
-    75%{ transform:translate(80px,-80px)  }
+    60%{ transform:translate(-10px,90px)  }
+    75%{ transform:translate(30px,0px)  }
     100%{ transform:translate(0px,0px)  }
 
 }
@@ -1618,61 +1618,61 @@ opacity: 1;
 
 @-webkit-keyframes around73 {  
     0%{ -webkit-transform:translate(0px,0px)  }
-    20%{ -webkit-transform:translate(-140px,-120px)  }
-    40%{ -webkit-transform:translate(-140px,40px)  }
-    60%{ -webkit-transform:translate(-180px,-20px)  }
-    80%{ -webkit-transform:translate(-100px,50px)  }
+    20%{ -webkit-transform:translate(-40px,-20px)  }
+    40%{ -webkit-transform:translate(-70px,40px)  }
+    60%{ -webkit-transform:translate(-50px,-20px)  }
+    80%{ -webkit-transform:translate(0px,50px)  }
     100%{ -webkit-transform:translate(0px,0px)  }
 }
 @keyframes around73 {  
     0%{ transform:translate(0px,0px)  }
-    20%{ transform:translate(-140px,-120px)  }
-    40%{ transform:translate(-140px,40px)  }
-    60%{ transform:translate(-180px,-20px)  }
-    80%{ transform:translate(-100px,50px)  }
+    20%{ transform:translate(-40px,-20px)  }
+    40%{ transform:translate(-70px,40px)  }
+    60%{ transform:translate(-50px,-20px)  }
+    80%{ transform:translate(0px,50px)  }
     100%{ transform:translate(0px,0px)  }
 }
 
 @-webkit-keyframes around74 {  
     0%{ -webkit-transform:translate(0px,0px)  }
-    30%{ -webkit-transform:translate(-300px,180px)  }
-    60%{ -webkit-transform:translate(-350px,-120px)  }
-    80%{ -webkit-transform:translate(-100px,200px)  }
+    30%{ -webkit-transform:translate(-100px,80px)  }
+    60%{ -webkit-transform:translate(-150px,-10px)  }
+    80%{ -webkit-transform:translate(-70px,40px)  }
     100%{ -webkit-transform:translate(0px,0px)  }
 }
 
 @keyframes around74 {  
     0%{ transform:translate(0px,0px)  }
-    30%{ transform:translate(-300px,180px)  }
-    60%{ transform:translate(-350px,-120px)  }
-    80%{ transform:translate(-100px,200px)  }
+    30%{ transform:translate(-100px,80px)  }
+    60%{ transform:translate(-150px,-10px)  }
+    80%{ transform:translate(-70px,40px)  }
     100%{ transform:translate(0px,0px)  }
 }
 
 @-webkit-keyframes around75 {  
     0%{ -webkit-transform:translate(0px,0px)  }
     15%{ -webkit-transform:translate(-30px,-70px)  }
-    30%{ -webkit-transform:translate(-20px,220px)  }
+    30%{ -webkit-transform:translate(-20px,20px)  }
     50%{ -webkit-transform:translate(-50px,-10px)  }
-    75%{ -webkit-transform:translate(0px,150px)  }
+    75%{ -webkit-transform:translate(0px,50px)  }
     100%{ -webkit-transform:translate(0px,0px)  }
 }
 
 @keyframes around75 {  
     0%{ transform:translate(0px,0px)  }
     15%{ transform:translate(-30px,-70px)  }
-    30%{ transform:translate(-20px,220px)  }
+    30%{ transform:translate(-20px,20px)  }
     50%{ transform:translate(-50px,-10px)  }
-    75%{ transform:translate(0px,150px)  }
+    75%{ transform:translate(0px,50px)  }
     100%{ transform:translate(0px,0px)  }
 }
 
 @-webkit-keyframes around76 {  
     0%{ -webkit-transform:translate(0px,0px)  }
     15%{ -webkit-transform:translate(60px,40px)  }
-    30%{ -webkit-transform:translate(180px,160px)  }
+    30%{ -webkit-transform:translate(100px,120px)  }
     45%{ -webkit-transform:translate(40px,40px)  }
-    60%{ -webkit-transform:translate(10px,190px)  }
+    60%{ -webkit-transform:translate(10px,110px)  }
     75%{ -webkit-transform:translate(80px,80px)  }
     100%{ -webkit-transform:translate(0px,0px)  }
 }
@@ -1680,9 +1680,9 @@ opacity: 1;
 @keyframes around76 {  
     0%{ transform:translate(0px,0px)  }
     15%{ transform:translate(60px,40px)  }
-    30%{ transform:translate(180px,160px)  }
+    30%{ transform:translate(100px,120px)  }
     45%{ transform:translate(40px,40px)  }
-    60%{ transform:translate(10px,190px)  }
+    60%{ transform:translate(10px,110px)  }
     75%{ transform:translate(80px,80px)  }
     100%{ transform:translate(0px,0px)  }
 
@@ -1691,7 +1691,7 @@ opacity: 1;
 @-webkit-keyframes around77 {  
 	0%{ -webkit-transform:translate(0px,0px)  }
 	12%{-webkit-transform:translate(50px,50px) }
-	30%{-webkit-transform:translate(150px,30px) }
+	30%{-webkit-transform:translate(120px,30px) }
 	60%{-webkit-transform:translate(40px,20px) }
 	80%{-webkit-transform:translate(10px,30px) }
 	100%{-webkit-transform:translate(0px,0px) }
@@ -1701,7 +1701,7 @@ opacity: 1;
 @keyframes around77 {  
 	0%{ transform:translate(0px,0px)  }
 	12%{transform:translate(50px,50px) }
-	30%{transform:translate(150px,30px) }
+	30%{transform:translate(120px,30px) }
 	60%{transform:translate(40px,20px) }
 	80%{transform:translate(10px,30px) }
 	100%{transform:translate(0px,0px) }
@@ -1710,52 +1710,52 @@ opacity: 1;
 
 @-webkit-keyframes around78 {  
     0%{ -webkit-transform:translate(0px,0px)  }
-    20%{ -webkit-transform:translate(140px,120px)  }
-    40%{ -webkit-transform:translate(-140px,40px)  }
-    60%{ -webkit-transform:translate(180px,20px)  }
-    80%{ -webkit-transform:translate(-100px,50px)  }
+    20%{ -webkit-transform:translate(80px,50px)  }
+    40%{ -webkit-transform:translate(-10px,40px)  }
+    60%{ -webkit-transform:translate(-60px,20px)  }
+    80%{ -webkit-transform:translate(-90px,50px)  }
     100%{ -webkit-transform:translate(0px,0px)  }
 }
 @keyframes around78 {  
     0%{ transform:translate(0px,0px)  }
-    20%{ transform:translate(140px,120px)  }
-    40%{ transform:translate(-140px,40px)  }
-    60%{ transform:translate(180px,20px)  }
-    80%{ transform:translate(-100px,50px)  }
+    20%{ transform:translate(80px,50px)  }
+    40%{ transform:translate(-10px,40px)  }
+    60%{ transform:translate(-60px,20px)  }
+    80%{ transform:translate(-90px,50px)  }
     100%{ transform:translate(0px,0px)  }
 }
 
 @-webkit-keyframes around79 {  
     0%{ -webkit-transform:translate(0px,0px)  }
-    30%{ -webkit-transform:translate(-300px,180px)  }
-    60%{ -webkit-transform:translate(-350px,120px)  }
-    80%{ -webkit-transform:translate(-100px,200px)  }
+    30%{ -webkit-transform:translate(-30px,80px)  }
+    60%{ -webkit-transform:translate(-110px,120px)  }
+    80%{ -webkit-transform:translate(-90px,20px)  }
     100%{ -webkit-transform:translate(0px,0px)  }
 }
 
 @keyframes around79 {  
     0%{ transform:translate(0px,0px)  }
-    30%{ transform:translate(-300px,180px)  }
-    60%{ transform:translate(-350px,120px)  }
-    80%{ transform:translate(-100px,200px)  }
+    30%{ transform:translate(-30px,80px)  }
+    60%{ transform:translate(-110px,120px)  }
+    80%{ transform:translate(-90px,20px)  }
     100%{ transform:translate(0px,0px)  }
 }
 
 @-webkit-keyframes around80 {  
     0%{ -webkit-transform:translate(0px,0px)  }
     15%{ -webkit-transform:translate(-30px,70px)  }
-    30%{ -webkit-transform:translate(-20px,220px)  }
-    50%{ -webkit-transform:translate(-50px,10px)  }
-    75%{ -webkit-transform:translate(0px,150px)  }
+    30%{ -webkit-transform:translate(-20px,120px)  }
+    50%{ -webkit-transform:translate(-50px,60px)  }
+    75%{ -webkit-transform:translate(0px,80px)  }
     100%{ -webkit-transform:translate(0px,0px)  }
 }
 
 @keyframes around80 {  
     0%{ transform:translate(0px,0px)  }
     15%{ transform:translate(-30px,70px)  }
-    30%{ transform:translate(-20px,220px)  }
-    50%{ transform:translate(-50px,10px)  }
-    75%{ transform:translate(0px,150px)  }
+    30%{ transform:translate(-20px,120px)  }
+    50%{ transform:translate(-50px,60px)  }
+    75%{ transform:translate(0px,80px)  }
     100%{ transform:translate(0px,0px)  }
 }
 
