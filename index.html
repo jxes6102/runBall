@@ -42,7 +42,6 @@
 </script>
 
 <script src="./js/jquery1.8.3.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
 </head>
 <body>
 
@@ -75,43 +74,6 @@
 // var time = new Date();
 // let str = time.getMonth() + 1+'-'+time.getDate()
 
-// let fake = [
-// 	{
-// 		number:97,
-// 		result: "02,11,15,16,19,21,27,28,32,35,45,47,55,57,60,62,67,70,76,79",
-// 		time: "2023-03-22 15:07:08",
-// 		hasRun:false
-// 	},
-// 	{
-// 		number:98,
-// 		result: "14,17,21,22,24,28,31,32,35,42,43,49,55,57,58,60,61,63,71,73",
-// 		time: "2023-03-22 15:10:57",
-// 		hasRun:false
-// 	},
-// 	{
-// 		number:99,
-// 		result:"07,10,13,17,18,19,22,30,34,35,36,37,38,45,47,52,57,64,72,75",
-// 		time:"2023-03-22 15:16:56",
-// 		hasRun:false
-// 	},
-// 	{
-// 		number: 100,
-// 		result: "08,09,10,12,14,15,18,24,28,33,34,41,50,52,56,62,63,71,76,80",
-// 		time: "2023-03-22 15:21:26",
-// 		hasRun:false
-// 	},
-// 	{
-// 		number: 101,
-// 		result: "04,05,08,12,13,17,20,22,23,34,35,37,43,45,54,57,60,66,74,76",
-// 		time: "2023-03-22 15:26:59",
-// 		hasRun:false
-// 	},
-// ]
-// console.log(str)
-// // 確保是今日資料
-// fake = fake.filter(((item)=> item.time.includes(str)))
-// console.log('gg',fake)
-
 //歷史紀錄
 // fetch('https://wkc-admin.worldlottery.cc/graphql', {
 // 	body: JSON.stringify({
@@ -127,47 +89,35 @@
 // .then(response => response.json()) // 輸出成 json
 // .then(data => console.log('graphql',data))
 
-
-let drawResult = null
+let drawResult = ''
 let allNum = 80
-let data = []
 let cycleNo = 0
 let openStatus = true
 const getNum = async() => {
-	await axios.get('https://globalcaipiaokong.com/api/trial/draw-result?code=twklb&rows=1')
-	.then((res) =>{
-		// handle success
-		// console.log('res',res);
-		if(res.data.msg === '成功') {
-			// console.log('成功')
-			if(!data.map((item)=> item.number).includes(res.data.data[0].cycleNo)){
-				data.push({
-					number:res.data.data[0].cycleNo,
-					result:res.data.data[0].drawResult,
-					time:res.data.data[0].prevDrawTime,
-					hasRun:false
-				})
-				// console.log('data',data)
+	await fetch('https://globalcaipiaokong.com/api/trial/draw-result?code=twklb&rows=1', {
+		headers: {
+			'content-type': 'application/json' // 這一欄一定要設定！
+		},
+		method: 'GET',
+	})
+	.then(response => response.json()) // 輸出成 json
+	.then(res => {
+		console.log('res',res)
+		if(res.msg === '成功') {
+			if(cycleNo === res.data[0].cycleNo) {
+				openStatus = false
+			}else{
+				cycleNo = res.data[0].cycleNo
+				openStatus = true
 			}
 			
-			// console.log('num arr',data.map((item)=> item.number))
+			drawResult = res.data[0].drawResult
+			console.log('drawResult',drawResult)
 		}
 
-		if(cycleNo === res.data.data[0].cycleNo) {
-			openStatus = false
-		}else{
-			cycleNo = res.data.data[0].cycleNo
-			openStatus = true
-		}
-		
-		drawResult = res.data.data[0].drawResult
-		// drawResult = res.data.data[0].drawResult.split(',').map((item)=> parseInt(item))
-		// console.log(drawResult.length)
-		// console.log('drawResult',drawResult)
-	}).catch((error) =>{
-		// handle error
-		console.log(error);
-	})
+	}).catch((error) => {
+		console.error("Error:", error);
+	});
 }
 
 const init = async() => {
@@ -180,51 +130,78 @@ const init = async() => {
 	// console.log('init')
 }
 
+let fallTimes = 0
+const fallBall = () => {
+	if(fallTimes<20){
+		setTimeout(function (){
+			// 掉球
+			let num = drawResult.split(',')[fallTimes]
+			$(".zjdl").children("span").attr('data-content',num)
+			$(".zjdl").children("span").addClass("diaL_one");
+			$(".zjdl").removeClass("none").addClass("dila_Y");
+			setTimeout(function (){
+				// 收球
+				$(".zjdl").addClass("none").removeClass("dila_Y");
+				$(".zjdl").children("span").removeAttr('class');
+				fallTimes++
+				fallBall()
+			},3500);
+		},2000);
+	}
+}
+// 顯示開獎視窗
+const showMessage = () => {
+	let data = drawResult.substring( 0 , drawResult.length/3+1 ) + '<br>' 
+			+ drawResult.substring( drawResult.length/3+1,2*drawResult.length/3) + '<br>' 
+			+ drawResult.substring( 2*drawResult.length/3,drawResult.length)
+		
+	$("#message").html('編號'+cycleNo+":"+"<br>"+data+"")
+	$("#jianpin_one").show();
+}
+
+
 const play = () => {
+	fallTimes = 0
 	$("#jianpin_one em img").click()
 	// 滾球動畫
 	for(i=1;i<=allNum;i++){
 		$(".qiu_"+i).removeClass("diaol_"+i);
 		$(".qiu_"+i).addClass("wieyi_"+i);
 	};
+
 	// 掉球動畫
-	setTimeout(function (){
-		$(".zjdl").children("span").addClass("diaL_one");
-		$(".zjdl").removeClass("none").addClass("dila_Y");
-	},1000);
+	fallBall()
+	
 	// 結束動畫	
 	setTimeout(function (){
 		for(i=1;i<=allNum;i++){
 			$(".qiu_"+i).removeClass("wieyi_"+i);
 		}
 
-		let data = drawResult.substring( 0 , drawResult.length/3+1 ) + '<br>' 
-			+ drawResult.substring( drawResult.length/3+1,2*drawResult.length/3) + '<br>' 
-			+ drawResult.substring( 2*drawResult.length/3,drawResult.length)
+		showMessage()
 		
-		$("#message").html('編號'+cycleNo+":"+"<br>"+data+"!")
-		$("#jianpin_one").show();
-
+		// 收球動畫
 		$(".zjdl").addClass("none").removeClass("dila_Y");
 		$(".zjdl").children("span").removeAttr('class');
 
 	},120000);
 }
 
+
 $(document).ready((e) =>{
 	init()
 	// console.log('ready')
-	//一等奖 关闭
+	//關閉結果畫面
 	$("#jianpin_one em img").click(function(){
 		$("#jianpin_one").hide();
 		}
 	);
-		
-	var score=true;
 	
 	setTimeout(function (){
-		play()
+		showMessage()
+		// play()
 	},1000);
+
 	var timeout1 = window.setInterval((async() => {
 		// 拿號碼
 		await getNum()
