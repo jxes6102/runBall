@@ -71,8 +71,6 @@
 	</div>
 </div>
 <script>
-// var time = new Date();
-// let str = time.getMonth() + 1+'-'+time.getDate()
 
 //歷史紀錄
 // fetch('https://wkc-admin.worldlottery.cc/graphql', {
@@ -189,6 +187,21 @@ const play = () => {
 }
 
 
+
+// 判斷時間
+const timeSample = ['0-0','5-0','10-0','15-0','20-0','25-0','30-0','35-0','40-0','45-0','50-0','55-0']
+const judgeTime = () => {
+	let now = new Date()
+	let seconds = now.getSeconds()
+	let mins = now.getMinutes()
+	let hours = now.getHours()
+	let time = mins + '-' + seconds
+	console.log('======================')
+	console.log('time',time)
+	// console.log(timeSample.includes(time))
+	return timeSample.includes(time)
+}
+
 $(document).ready((e) =>{
 	init()
 	// console.log('ready')
@@ -203,13 +216,24 @@ $(document).ready((e) =>{
 		// play()
 	},1500);
 
-	var timeout1 = window.setInterval((async() => {
-		// 拿號碼
-		await getNum()
-		if(openStatus) {
-			play()
+	// old version
+	// let timeout1 = window.setInterval((async() => {
+	// 	// 拿號碼
+	// 	await getNum()
+	// 	if(openStatus) {
+	// 		play()
+	// 	}
+	// } ), 60000);
+
+	// new version
+	let timeout2 = window.setInterval((async() => {
+		if(judgeTime()) {
+			await getNum()
+			if(openStatus) {
+				play()
+			}
 		}
-	} ), 60000);
+	} ), 1000);
 
 });
 
