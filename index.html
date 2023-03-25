@@ -171,36 +171,37 @@ let showCountDown = () => {
 		}
 	} ), 1000);
 }
-
+// 控制滾球動畫
+let controlRunBall = (status = false) => {
+	for(i=1;i<=allNum;i++){
+		if(status){
+			$(".qiu_"+i).removeClass("diaol_"+i);
+			$(".qiu_"+i).addClass("wieyi_"+i);
+		}else {
+			$(".qiu_"+i).removeClass("wieyi_"+i);
+		}
+	};
+}
 // 開獎動作
 const play = () => {
 	fallTimes = 0
 	$("#jianpin_one em img").click()
-	// 滾球動畫
-	for(i=1;i<=allNum;i++){
-		$(".qiu_"+i).removeClass("diaol_"+i);
-		$(".qiu_"+i).addClass("wieyi_"+i);
-	};
+
+	controlRunBall(true)
 
 	// 掉球動畫
 	fallBall()
 	
 	// 結束動畫	
 	setTimeout(function (){
-		for(i=1;i<=allNum;i++){
-			$(".qiu_"+i).removeClass("wieyi_"+i);
-		}
-
+		controlRunBall(false)
 		showMessage()
-		
 		// 收球動畫
 		$(".zjdl").addClass("none").removeClass("dila_Y");
 		$(".zjdl").children("span").removeAttr('class');
 
 	},90000);
 }
-
-
 
 // 判斷時間
 const timeSample = ['0-0','5-0','10-0','15-0','20-0','25-0','30-0','35-0','40-0','45-0','50-0','55-0']
@@ -291,7 +292,6 @@ $(document).ready((e) =>{
 			checkNum()
 		}
 	} ), 1000);
-	
 
 });
 
