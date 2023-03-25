@@ -202,18 +202,18 @@ const play = () => {
 }
 
 // 判斷時間
-const timeSample = ['0-0','5-0','10-0','15-0','20-0','25-0','30-0','35-0','40-0','45-0','50-0','55-0']
+const timeSample = ['0','5','10','15','20','25','30','35','40','45','50','55']
 const timeCountdown = ['59-50','4-50','9-50','14-50','19-50','24-50','29-50','34-50','39-50','44-50','49-50','54-50']
 const judgeTime = () => {
 	let now = new Date()
 	let seconds = now.getSeconds()
-	let mins = now.getMinutes()
+	let mins = now.getMinutes().toString()
 	let hours = now.getHours()
 	let time = mins + '-' + seconds
 	// console.log('======================')
 	// console.log('time',time)
 	// console.log(timeSample.includes(time))
-	return timeSample.includes(time)
+	return timeSample.includes(mins)
 }
 // 判斷倒數時間
 const judgeCountdown = () => {
@@ -254,10 +254,10 @@ $(document).ready((e) =>{
 		}
 	);
 	
-	setTimeout(function (){
-		showMessage()
-		// play()
-	},1500);
+	// setTimeout(function (){
+	// 	showMessage()
+	// 	// play()
+	// },1500);
 
 	//  version 1
 	// let timeout1 = window.setInterval((async() => {
