@@ -187,8 +187,6 @@ const play = () => {
 	fallTimes = 0
 	$("#jianpin_one em img").click()
 
-	controlRunBall(true)
-
 	// 掉球動畫
 	fallBall()
 	
@@ -231,7 +229,7 @@ const judgeCountdown = () => {
 }
 // 確認API改變
 let checkNum = () => {
-	
+	controlRunBall(true)
 	let checkoutTimes = 0
 	let timeout3 = window.setInterval((async() => {
 		// 拿號碼
