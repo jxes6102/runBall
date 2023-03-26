@@ -91,6 +91,11 @@ let drawResult = ''
 let allNum = 80
 let cycleNo = 0
 let openStatus = true
+let fallTimes = 0
+const timeSample = ['0','5','10','15','20','25','30','35','40','45','50','55']
+const timeCountdown = ['59-50','4-50','9-50','14-50','19-50','24-50','29-50','34-50','39-50','44-50','49-50','54-50']
+let judgeTimeStatus = true
+let countDownStatus = true
 // 拿開獎數字
 const getNum = async() => {
 	await fetch('https://globalcaipiaokong.com/api/trial/draw-result?code=twklb&rows=1', {
@@ -129,7 +134,6 @@ const init = async() => {
 	// console.log('init')
 }
 //掉球動作
-let fallTimes = 0
 const fallBall = () => {
 	if(fallTimes<20){
 		setTimeout(function (){
@@ -168,6 +172,7 @@ let showCountDown = () => {
 		if(checkoutTimes === 10) {
 			clearInterval(timeout5)
 			$("#jianpin_one").hide();
+			countDownStatus = true
 		}
 	} ), 1000);
 }
@@ -202,8 +207,6 @@ const play = () => {
 }
 
 // 判斷時間
-const timeSample = ['0-0','5-0','10-0','15-0','20-0','25-0','30-0','35-0','40-0','45-0','50-0','55-0']
-const timeCountdown = ['59-50','4-50','9-50','14-50','19-50','24-50','29-50','34-50','39-50','44-50','49-50','54-50']
 const judgeTime = () => {
 	let now = new Date()
 	let seconds = now.getSeconds()
@@ -213,7 +216,7 @@ const judgeTime = () => {
 	// console.log('======================')
 	// console.log('time',time)
 	// console.log(timeSample.includes(time))
-	return timeSample.includes(time)
+	return timeSample.includes(mins)
 }
 // 判斷倒數時間
 const judgeCountdown = () => {
@@ -235,12 +238,12 @@ let checkNum = () => {
 		// 拿號碼
 		await getNum()
 		checkoutTimes++
-		if(openStatus) {
+		if((openStatus) || (checkoutTimes === 50)) {
 			play()
 			clearInterval(timeout3)
+			judgeTimeStatus = true
 		}
 		// console.log('checkoutTimes',checkoutTimes)
-		if(checkoutTimes === 50) clearInterval(timeout3)
 	} ), 5000);
 }
 
@@ -281,11 +284,13 @@ $(document).ready((e) =>{
 
 	let timeout4 = window.setInterval((async() => {
 		
-		if(judgeCountdown()) {
+		if(judgeCountdown() && countDownStatus) {
+			countDownStatus = false
 			showCountDown()
 		}
-
-		if(judgeTime()) {
+		
+		if(judgeTime() && judgeTimeStatus) {
+			judgeTimeStatus = false
 			await getNum()
 			checkNum()
 		}
