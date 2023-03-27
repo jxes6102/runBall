@@ -217,7 +217,13 @@ let checkNum = () => {
 		await getNum()
 		checkoutTimes++
 		if((openStatus) || (checkoutTimes === 50)) {
-			play()
+			// nice version
+			// play()
+			// nice version
+			// direct
+			showMessage()
+			controlRunBall(false)
+			// direct
 			clearInterval(timeout3)
 			judgeTimeStatus = true
 		}
@@ -228,18 +234,30 @@ let checkNum = () => {
 $(document).ready((e) =>{
 	init()
 	// console.log('ready')
-	//關閉結果畫面
+	//定義關閉結果事件
 	$("#jianpin_one em img").click(function(){
 		$("#jianpin_one").hide()
 	})
-	
+	// first time action
 	setTimeout(function (){
 		let now = new Date()
 		let mins = now.getMinutes()
+	
 		if(((mins % 5) !== 0)){
 			showMessage()
 		}
 		// play()
+		let firstTimes = 0
+		let firstTimeout = window.setInterval((() => {
+			firstTimes++
+			if(judgeTimeStatus){
+				getNum()
+				showMessage()
+			}
+			if((firstTimes === 5) || (!judgeTimeStatus)) {
+				clearInterval(firstTimeout)
+			}
+		} ), 30000)
 	},1500)
 
 	let timeout4 = window.setInterval((async() => {
