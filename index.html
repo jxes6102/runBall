@@ -94,6 +94,7 @@ let openStatus = true
 let fallTimes = 0
 let judgeTimeStatus = true
 let countDownStatus = true
+let messageArr = []
 // 拿開獎數字
 const getNum = async() => {
 	await fetch('https://globalcaipiaokong.com/api/trial/draw-result?code=twklb&rows=1', {
@@ -114,7 +115,7 @@ const getNum = async() => {
 			}
 			
 			drawResult = res.data[0].drawResult
-			// console.log('drawResult',drawResult)
+			messageArr = res.data[0].drawResult.split(',')
 		}
 
 	}).catch((error) => {
@@ -136,6 +137,10 @@ const fallBall = () => {
 	if(fallTimes<20){
 		setTimeout(function (){
 			// 掉球
+			let text = messageArr.slice(0,fallTimes+1).join(',')
+			$("#message").html('編號'+cycleNo+":"+"<br>"+text+"")
+			$("#jianpin_one").show()
+
 			let num = drawResult.split(',')[fallTimes]
 			$(".zjdl").children("span").attr('data-content',num)
 			$(".zjdl").children("span").addClass("diaL_one")
@@ -148,15 +153,13 @@ const fallBall = () => {
 				fallBall()
 			},1000)
 		},1000)
+	}else {
+		controlRunBall(false)
 	}
 }
 // 顯示開獎視窗
 const showMessage = () => {
-	let data = drawResult.substring( 0 , drawResult.length/3+1 ) + '<br>' 
-			+ drawResult.substring( drawResult.length/3+1,2*drawResult.length/3) + '<br>' 
-			+ drawResult.substring( 2*drawResult.length/3,drawResult.length)
-		
-	$("#message").html('編號'+cycleNo+":"+"<br>"+data+"")
+	$("#message").html('編號'+cycleNo+":"+"<br>"+drawResult)
 	$("#jianpin_one").show()
 }
 // 顯示倒數
@@ -166,7 +169,7 @@ let showCountDown = () => {
 	let timeout5 = window.setInterval((async() => {
 		// 拿號碼
 		checkoutTimes--
-		$("#message").html((checkoutTimes))
+		$("#message").html(checkoutTimes)
 		if(checkoutTimes === 0) {
 			clearInterval(timeout5)
 			$("#jianpin_one").hide()
@@ -188,20 +191,8 @@ let controlRunBall = (status = false) => {
 // 開獎動作
 const play = () => {
 	fallTimes = 0
-	$("#jianpin_one em img").click()
-
-	// 掉球動畫
+	// 掉球和結果動畫
 	fallBall()
-	
-	// 結束動畫	
-	setTimeout(function (){
-		controlRunBall(false)
-		showMessage()
-		// 收球動畫
-		$(".zjdl").addClass("none").removeClass("dila_Y")
-		$(".zjdl").children("span").removeAttr('class')
-
-	},50000)
 }
 
 // 判斷時間
@@ -215,7 +206,7 @@ const judgeCountdown = () => {
 	let now = new Date()
 	let seconds = now.getSeconds()
 	let mins = now.getMinutes()
-	return ((mins % 5) === 4) && (seconds > 50)
+	return ((mins % 5) === 4) && (seconds > 49)
 }
 // 確認API改變
 let checkNum = () => {
