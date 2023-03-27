@@ -17,27 +17,27 @@
 <title>jQuery双色球开奖扭蛋机抽奖代码 - 站长素材</title>
 <!--移动端版本兼容 -->
 <script type="text/javascript">
-    var phoneWidth =  parseInt(window.screen.width);
-    var phoneScale = phoneWidth/640;
-    var ua = navigator.userAgent;
+    var phoneWidth =  parseInt(window.screen.width)
+    var phoneScale = phoneWidth/640
+    var ua = navigator.userAgent
     if (/Android (\d+\.\d+)/.test(ua)){
-        var version = parseFloat(RegExp.$1);
+        var version = parseFloat(RegExp.$1)
         // andriod 2.3
         if(version>2.3){
-            document.write('<meta name="viewport" content="width=640, minimum-scale = '+phoneScale+', maximum-scale = '+phoneScale+', target-densitydpi=device-dpi">');
+            document.write('<meta name="viewport" content="width=640, minimum-scale = '+phoneScale+', maximum-scale = '+phoneScale+', target-densitydpi=device-dpi">')
         // andriod 2.3以上
         }else{
-            document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+            document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">')
         }
         // 其他系统
     } else {
-        document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+        document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">')
     }
     //微信去掉下方刷新栏
     if(RegExp("MicroMessenger").test(navigator.userAgent)){
         document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
-            WeixinJSBridge.call('hideToolbar');
-        });
+            WeixinJSBridge.call('hideToolbar')
+        })
     }
 </script>
 
@@ -92,8 +92,6 @@ let allNum = 80
 let cycleNo = 0
 let openStatus = true
 let fallTimes = 0
-const timeSample = ['0','5','10','15','20','25','30','35','40','45','50','55']
-const timeCountdown = ['59-50','4-50','9-50','14-50','19-50','24-50','29-50','34-50','39-50','44-50','49-50','54-50']
 let judgeTimeStatus = true
 let countDownStatus = true
 // 拿開獎數字
@@ -120,8 +118,8 @@ const getNum = async() => {
 		}
 
 	}).catch((error) => {
-		console.error("Error:", error);
-	});
+		console.error("Error:", error)
+	})
 }
 //初始化球和API
 const init = async() => {
@@ -140,16 +138,16 @@ const fallBall = () => {
 			// 掉球
 			let num = drawResult.split(',')[fallTimes]
 			$(".zjdl").children("span").attr('data-content',num)
-			$(".zjdl").children("span").addClass("diaL_one");
-			$(".zjdl").removeClass("none").addClass("dila_Y");
+			$(".zjdl").children("span").addClass("diaL_one")
+			$(".zjdl").removeClass("none").addClass("dila_Y")
 			setTimeout(function (){
 				// 收球
-				$(".zjdl").addClass("none").removeClass("dila_Y");
-				$(".zjdl").children("span").removeAttr('class');
+				$(".zjdl").addClass("none").removeClass("dila_Y")
+				$(".zjdl").children("span").removeAttr('class')
 				fallTimes++
 				fallBall()
-			},2500);
-		},1500);
+			},1000)
+		},1000)
 	}
 }
 // 顯示開獎視窗
@@ -159,33 +157,33 @@ const showMessage = () => {
 			+ drawResult.substring( 2*drawResult.length/3,drawResult.length)
 		
 	$("#message").html('編號'+cycleNo+":"+"<br>"+data+"")
-	$("#jianpin_one").show();
+	$("#jianpin_one").show()
 }
 // 顯示倒數
 let showCountDown = () => {
-	$("#jianpin_one").show();
-	let checkoutTimes = 0
+	$("#jianpin_one").show()
+	let checkoutTimes = 60 - new Date().getSeconds()
 	let timeout5 = window.setInterval((async() => {
 		// 拿號碼
-		checkoutTimes++
-		$("#message").html((10 - checkoutTimes))
-		if(checkoutTimes === 10) {
+		checkoutTimes--
+		$("#message").html((checkoutTimes))
+		if(checkoutTimes === 0) {
 			clearInterval(timeout5)
-			$("#jianpin_one").hide();
+			$("#jianpin_one").hide()
 			countDownStatus = true
 		}
-	} ), 1000);
+	} ), 1000)
 }
 // 控制滾球動畫
 let controlRunBall = (status = false) => {
 	for(i=1;i<=allNum;i++){
 		if(status){
-			$(".qiu_"+i).removeClass("diaol_"+i);
-			$(".qiu_"+i).addClass("wieyi_"+i);
+			$(".qiu_"+i).removeClass("diaol_"+i)
+			$(".qiu_"+i).addClass("wieyi_"+i)
 		}else {
-			$(".qiu_"+i).removeClass("wieyi_"+i);
+			$(".qiu_"+i).removeClass("wieyi_"+i)
 		}
-	};
+	}
 }
 // 開獎動作
 const play = () => {
@@ -200,35 +198,24 @@ const play = () => {
 		controlRunBall(false)
 		showMessage()
 		// 收球動畫
-		$(".zjdl").addClass("none").removeClass("dila_Y");
-		$(".zjdl").children("span").removeAttr('class');
+		$(".zjdl").addClass("none").removeClass("dila_Y")
+		$(".zjdl").children("span").removeAttr('class')
 
-	},90000);
+	},50000)
 }
 
 // 判斷時間
 const judgeTime = () => {
 	let now = new Date()
-	let seconds = now.getSeconds()
-	let mins = now.getMinutes().toString()
-	let hours = now.getHours()
-	let time = mins + '-' + seconds
-	// console.log('======================')
-	// console.log('time',time)
-	// console.log(timeSample.includes(time))
-	return timeSample.includes(mins)
+	let mins = now.getMinutes()
+	return ((mins % 5) === 0)
 }
 // 判斷倒數時間
 const judgeCountdown = () => {
 	let now = new Date()
 	let seconds = now.getSeconds()
 	let mins = now.getMinutes()
-	let hours = now.getHours()
-	let time = mins + '-' + seconds
-	// console.log('======================')
-	// console.log('time',time)
-	// console.log(timeSample.includes(time))
-	return timeCountdown.includes(time)
+	return ((mins % 5) === 4) && (seconds > 50)
 }
 // 確認API改變
 let checkNum = () => {
@@ -243,8 +230,7 @@ let checkNum = () => {
 			clearInterval(timeout3)
 			judgeTimeStatus = true
 		}
-		// console.log('checkoutTimes',checkoutTimes)
-	} ), 5000);
+	} ), 5000)
 }
 
 
@@ -253,14 +239,17 @@ $(document).ready((e) =>{
 	// console.log('ready')
 	//關閉結果畫面
 	$("#jianpin_one em img").click(function(){
-		$("#jianpin_one").hide();
-		}
-	);
+		$("#jianpin_one").hide()
+	})
 	
-	// setTimeout(function (){
-	// 	showMessage()
-	// 	// play()
-	// },1500);
+	setTimeout(function (){
+		let now = new Date()
+		let mins = now.getMinutes()
+		if(((mins % 5) !== 0)){
+			showMessage()
+		}
+		// play()
+	},1500)
 
 	//  version 1
 	// let timeout1 = window.setInterval((async() => {
@@ -269,7 +258,7 @@ $(document).ready((e) =>{
 	// 	if(openStatus) {
 	// 		play()
 	// 	}
-	// } ), 60000);
+	// } ), 60000)
 
 	// version 2
 	// let timeout2 = window.setInterval((async() => {
@@ -279,7 +268,7 @@ $(document).ready((e) =>{
 	// 			play()
 	// 		}
 	// 	}
-	// } ), 1000);
+	// } ), 1000)
 
 
 	let timeout4 = window.setInterval((async() => {
@@ -290,13 +279,14 @@ $(document).ready((e) =>{
 		}
 		
 		if(judgeTime() && judgeTimeStatus) {
+			$("#jianpin_one").hide()
 			judgeTimeStatus = false
 			await getNum()
 			checkNum()
 		}
-	} ), 1000);
+	} ), 1000)
 
-});
+})
 
 </script>
 </body>
