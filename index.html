@@ -138,8 +138,7 @@ const fallBall = () => {
 		setTimeout(function (){
 			// 掉球
 			let text = messageArr.slice(0,fallTimes+1).join(',')
-			$("#message").html('編號'+cycleNo+":"+"<br>"+text+"")
-			$("#jianpin_one").show()
+			controlMessage(true,text,cycleNo)
 
 			let num = drawResult.split(',')[fallTimes]
 			$(".zjdl").children("span").attr('data-content',num)
@@ -157,14 +156,14 @@ const fallBall = () => {
 		controlRunBall(false)
 	}
 }
-// 顯示開獎視窗
-const showMessage = () => {
-	$("#message").html('編號'+cycleNo+":"+"<br>"+drawResult)
-	$("#jianpin_one").show()
-}
-const controlMessage = (status = false) => {
+// 控制開獎視窗
+const controlMessage = (status = false,text = '',title = '') => {
 	if(status) {
-		$("#message").html('編號'+cycleNo+":"+"<br>"+drawResult)
+		if(title) {
+			$("#message").html('編號'+title+":"+"<br>"+text)
+		} else {
+			$("#message").html(text)
+		}
 		$("#jianpin_one").show()
 	}else {
 		$("#jianpin_one").hide()
@@ -172,12 +171,11 @@ const controlMessage = (status = false) => {
 }
 // 顯示倒數
 let showCountDown = () => {
-	$("#jianpin_one").show()
 	let checkoutTimes = 60 - new Date().getSeconds()
 	let timeout5 = window.setInterval((async() => {
 		// 拿號碼
 		checkoutTimes--
-		$("#message").html(checkoutTimes)
+		controlMessage(true,checkoutTimes)
 		if(checkoutTimes === 0) {
 			clearInterval(timeout5)
 			controlMessage(false)
@@ -229,7 +227,7 @@ let checkNum = () => {
 			// play()
 			// nice version
 			// direct
-			controlMessage(true)
+			controlMessage(true,drawResult,cycleNo)
 			controlRunBall(false)
 			// direct
 			clearInterval(timeout3)
@@ -252,7 +250,7 @@ $(document).ready((e) =>{
 		let mins = now.getMinutes()
 	
 		if(((mins % 5) !== 0)){
-			controlMessage(true)
+			controlMessage(true,drawResult,cycleNo)
 		}
 		// play()
 		let firstTimes = 0
@@ -260,7 +258,7 @@ $(document).ready((e) =>{
 			firstTimes++
 			if(judgeTimeStatus){
 				await getNum()
-				controlMessage(true)
+				controlMessage(true,drawResult,cycleNo)
 			}
 			if((firstTimes === 5) || (!judgeTimeStatus) || (!countDownStatus)) {
 				clearInterval(firstTimeout)
