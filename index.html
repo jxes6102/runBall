@@ -229,7 +229,7 @@ let checkNum = () => {
 			// play()
 			// nice version
 			// direct
-			showMessage()
+			controlMessage(true)
 			controlRunBall(false)
 			// direct
 			clearInterval(timeout3)
@@ -252,7 +252,7 @@ $(document).ready((e) =>{
 		let mins = now.getMinutes()
 	
 		if(((mins % 5) !== 0)){
-			showMessage()
+			controlMessage(true)
 		}
 		// play()
 		let firstTimes = 0
@@ -260,7 +260,7 @@ $(document).ready((e) =>{
 			firstTimes++
 			if(judgeTimeStatus){
 				await getNum()
-				showMessage()
+				controlMessage(true)
 			}
 			if((firstTimes === 5) || (!judgeTimeStatus) || (!countDownStatus)) {
 				clearInterval(firstTimeout)
