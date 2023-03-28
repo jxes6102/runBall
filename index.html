@@ -162,6 +162,14 @@ const showMessage = () => {
 	$("#message").html('編號'+cycleNo+":"+"<br>"+drawResult)
 	$("#jianpin_one").show()
 }
+const controlMessage = (status = false) => {
+	if(status) {
+		$("#message").html('編號'+cycleNo+":"+"<br>"+drawResult)
+		$("#jianpin_one").show()
+	}else {
+		$("#jianpin_one").hide()
+	}
+}
 // 顯示倒數
 let showCountDown = () => {
 	$("#jianpin_one").show()
@@ -172,7 +180,7 @@ let showCountDown = () => {
 		$("#message").html(checkoutTimes)
 		if(checkoutTimes === 0) {
 			clearInterval(timeout5)
-			$("#jianpin_one").hide()
+			controlMessage(false)
 			countDownStatus = true
 		}
 	} ), 1000)
@@ -236,7 +244,7 @@ $(document).ready((e) =>{
 	// console.log('ready')
 	//定義關閉結果事件
 	$("#jianpin_one em img").click(function(){
-		$("#jianpin_one").hide()
+		controlMessage(false)
 	})
 	// first time action
 	setTimeout(function (){
@@ -268,7 +276,7 @@ $(document).ready((e) =>{
 		}
 		
 		if(judgeTime() && judgeTimeStatus) {
-			$("#jianpin_one").hide()
+			controlMessage(false)
 			judgeTimeStatus = false
 			await getNum()
 			checkNum()
