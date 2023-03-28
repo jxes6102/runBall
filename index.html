@@ -248,13 +248,13 @@ $(document).ready((e) =>{
 		}
 		// play()
 		let firstTimes = 0
-		let firstTimeout = window.setInterval((() => {
+		let firstTimeout = window.setInterval((async() => {
 			firstTimes++
 			if(judgeTimeStatus){
-				getNum()
+				await getNum()
 				showMessage()
 			}
-			if((firstTimes === 5) || (!judgeTimeStatus)) {
+			if((firstTimes === 5) || (!judgeTimeStatus) || (!countDownStatus)) {
 				clearInterval(firstTimeout)
 			}
 		} ), 30000)
