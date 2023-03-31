@@ -248,7 +248,7 @@ $(document).ready((e) =>{
 	$("#jianpin_one em img").click(function(){
 		controlMessage(false)
 	})
-	// first time action
+	// // first time action
 	// setTimeout(function (){
 	// 	let now = new Date()
 	// 	let mins = now.getMinutes()
@@ -269,7 +269,7 @@ $(document).ready((e) =>{
 	// 		}
 	// 	} ), 30000)
 	// },1500)
-	// check time to play
+	// // check time to play
 	// let timeout4 = window.setInterval((async() => {
 		
 	// 	if(judgeCountdown() && countDownStatus) {
@@ -293,7 +293,7 @@ $(document).ready((e) =>{
 	setTimeout(function (){
 		controlMessage(true,drawResult,cycleNo)
 	},1500)
-	let timeout4 = window.setInterval((async() => {
+	let timeout6 = window.setInterval((async() => {
 		
 		await getNum()
 		controlMessage(true,drawResult,cycleNo)
