@@ -8,6 +8,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <meta http-equiv="Expires" content="-1" />
 <meta http-equiv="pragram" content="no-cache" />
+<meta http-equiv='cache-control' content='no-cache'>
+<meta http-equiv='expires' content='0'>
+<meta http-equiv='pragma' content='no-cache'>
 
 <link href="./css/style.css" type="text/css" rel="stylesheet">
 <link href="./css/ball.css" type="text/css" rel="stylesheet">
@@ -39,6 +42,7 @@
             WeixinJSBridge.call('hideToolbar')
         })
     }
+	console.log('last time 20230331_1')
 </script>
 
 <script src="./js/jquery1.8.3.min.js"></script>
@@ -245,41 +249,56 @@ $(document).ready((e) =>{
 		controlMessage(false)
 	})
 	// first time action
-	setTimeout(function (){
-		let now = new Date()
-		let mins = now.getMinutes()
+	// setTimeout(function (){
+	// 	let now = new Date()
+	// 	let mins = now.getMinutes()
 	
-		if(((mins % 5) !== 0)){
-			controlMessage(true,drawResult,cycleNo)
-		}
-		// play()
-		let firstTimes = 0
-		let firstTimeout = window.setInterval((async() => {
-			firstTimes++
-			if(judgeTimeStatus){
-				await getNum()
-				controlMessage(true,drawResult,cycleNo)
-			}
-			if((firstTimes === 5) || (!judgeTimeStatus) || (!countDownStatus)) {
-				clearInterval(firstTimeout)
-			}
-		} ), 30000)
-	},1500)
+	// 	if(((mins % 5) !== 0)){
+	// 		controlMessage(true,drawResult,cycleNo)
+	// 	}
+	// 	// play()
+	// 	let firstTimes = 0
+	// 	let firstTimeout = window.setInterval((async() => {
+	// 		firstTimes++
+	// 		if(judgeTimeStatus){
+	// 			await getNum()
+	// 			controlMessage(true,drawResult,cycleNo)
+	// 		}
+	// 		if((firstTimes === 5) || (!judgeTimeStatus) || (!countDownStatus)) {
+	// 			clearInterval(firstTimeout)
+	// 		}
+	// 	} ), 30000)
+	// },1500)
 	// check time to play
+	// let timeout4 = window.setInterval((async() => {
+		
+	// 	if(judgeCountdown() && countDownStatus) {
+	// 		countDownStatus = false
+	// 		showCountDown()
+	// 	}
+		
+	// 	if(judgeTime() && judgeTimeStatus) {
+	// 		controlMessage(false)
+	// 		judgeTimeStatus = false
+	// 		await getNum()
+	// 		checkNum()
+	// 	}
+	// } ), 1000)
+
+	// 30s/t version
+	$(".game_go").click(function(){
+		controlMessage(true,drawResult,cycleNo)
+	})
+	getNum()
+	setTimeout(function (){
+		controlMessage(true,drawResult,cycleNo)
+	},1500)
 	let timeout4 = window.setInterval((async() => {
 		
-		if(judgeCountdown() && countDownStatus) {
-			countDownStatus = false
-			showCountDown()
-		}
-		
-		if(judgeTime() && judgeTimeStatus) {
-			controlMessage(false)
-			judgeTimeStatus = false
-			await getNum()
-			checkNum()
-		}
-	} ), 1000)
+		await getNum()
+		controlMessage(true,drawResult,cycleNo)
+
+	} ), 20000)
 
 })
 
