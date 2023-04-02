@@ -292,24 +292,8 @@ $(document).ready((e) =>{
 	setTimeout(function (){
 		controlMessage(true,drawResult,cycleNo)
 	},1500)
-	// let timeout6 = window.setInterval((async() => {
-		
-	// 	await getNum()
-	// 	controlMessage(true,drawResult,cycleNo)
 
-	// } ), 10000)
-
-
-
-	// let timeout7 = window.setInterval((async() => {
-	// 	if(judgeTimeStatus) {
-	// 		controlMessage(false)
-	// 		judgeTimeStatus = false
-	// 		checkNum()
-	// 	}
-	// } ), 1000)
 	let timeout8 = window.setInterval((async() => {
-		// 拿號碼
 		await getNum()
 		if(openStatus) {
 			controlRunBall(true)
