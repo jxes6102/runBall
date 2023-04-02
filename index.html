@@ -42,7 +42,7 @@
             WeixinJSBridge.call('hideToolbar')
         })
     }
-	console.log('last time 20230331_3')
+	console.log('last time 20230331_4')
 </script>
 
 <script src="./js/jquery1.8.3.min.js"></script>
@@ -226,18 +226,18 @@ let checkNum = () => {
 		// 拿號碼
 		await getNum()
 		checkoutTimes++
-		if((openStatus) || (checkoutTimes === 50)) {
+		if((openStatus) || (checkoutTimes === 30)) {
 			// nice version
-			// play()
+			play()
 			// nice version
 			// direct
-			controlMessage(true,drawResult,cycleNo)
-			controlRunBall(false)
+			// controlMessage(true,drawResult,cycleNo)
+			// controlRunBall(false)
 			// direct
 			clearInterval(timeout3)
 			judgeTimeStatus = true
 		}
-	} ), 5000)
+	} ), 10000)
 }
 
 
@@ -285,18 +285,36 @@ $(document).ready((e) =>{
 	// 	}
 	// } ), 1000)
 
-	// 30s/t version
+	// 10s/t version
 	$(".game_go").click(function(){
 		controlMessage(true,drawResult,cycleNo)
 	})
 	setTimeout(function (){
 		controlMessage(true,drawResult,cycleNo)
 	},1500)
-	let timeout6 = window.setInterval((async() => {
+	// let timeout6 = window.setInterval((async() => {
 		
-		await getNum()
-		controlMessage(true,drawResult,cycleNo)
+	// 	await getNum()
+	// 	controlMessage(true,drawResult,cycleNo)
 
+	// } ), 10000)
+
+
+
+	// let timeout7 = window.setInterval((async() => {
+	// 	if(judgeTimeStatus) {
+	// 		controlMessage(false)
+	// 		judgeTimeStatus = false
+	// 		checkNum()
+	// 	}
+	// } ), 1000)
+	let timeout8 = window.setInterval((async() => {
+		// 拿號碼
+		await getNum()
+		if(openStatus) {
+			controlRunBall(true)
+			play()
+		}
 	} ), 10000)
 
 })
