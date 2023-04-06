@@ -42,7 +42,7 @@
             WeixinJSBridge.call('hideToolbar')
         })
     }
-	console.log('last time 20230331_4')
+	console.log('last time 20230331_5')
 </script>
 
 <script src="./js/jquery1.8.3.min.js"></script>
@@ -154,8 +154,8 @@ const fallBall = () => {
 				$(".zjdl").children("span").removeAttr('class')
 				fallTimes++
 				fallBall()
-			},1000)
-		},1000)
+			},700)
+		},100)
 	}else {
 		controlRunBall(false)
 	}
@@ -227,13 +227,7 @@ let checkNum = () => {
 		await getNum()
 		checkoutTimes++
 		if((openStatus) || (checkoutTimes === 30)) {
-			// nice version
 			play()
-			// nice version
-			// direct
-			// controlMessage(true,drawResult,cycleNo)
-			// controlRunBall(false)
-			// direct
 			clearInterval(timeout3)
 			judgeTimeStatus = true
 		}
